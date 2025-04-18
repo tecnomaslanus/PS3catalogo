@@ -211,13 +211,19 @@ const observer = new IntersectionObserver((entries, obs) => {
 
 function cargarImagen(img) {
   const codigo = img.getAttribute('data-codigo');
-  let intentos = [
-    `https://raw.githubusercontent.com/tecnomaslanus/ps2/main/img/${codigo}_COV.jpg`,
-    `https://raw.githubusercontent.com/tecnomaslanus/ps2/main/img2/${codigo}_COV.jpg`,
-    `https://raw.githubusercontent.com/tecnomaslanus/ps2/main/img/${codigo}_COV.png`,
-    `https://raw.githubusercontent.com/tecnomaslanus/ps2/main/img2/${codigo}_COV.png`,
-    `https://raw.githubusercontent.com/tecnomaslanus/ps2/main/img2/default.jpg`
-  ];
+  const url = `https://raw.githubusercontent.com/tecnomaslanus/PS3catalogo/main/img/${codigo}.jpg`;
+
+  img.src = url;
+
+  img.onerror = () => {
+    img.src = 'https://raw.githubusercontent.com/tecnomaslanus/PS3catalogo/main/img/default.jpg';
+  };
+
+  img.onload = () => {
+    img.classList.add('loaded');
+  };
+}
+
 
   let i = 0;
 
