@@ -225,21 +225,7 @@ function cargarImagen(img) {
 }
 
 
-  let i = 0;
 
-  function intentarCargar() {
-    if (i >= intentos.length) return;
-
-    img.src = intentos[i];
-    img.onerror = () => {
-      i++;
-      intentarCargar();
-    };
-    img.onload = () => img.classList.add('loaded');
-  }
-
-  intentarCargar();
-}
       function actualizarContador() {
     actualizarListaSeleccionados();
 
