@@ -211,8 +211,9 @@ const observer = new IntersectionObserver((entries, obs) => {
 });
 
 function cargarImagen(img) {
-  const codigo = img.getAttribute('data-codigo');
-  const url = `https://raw.githubusercontent.com/tecnomaslanus/PS3catalogo/main/img/${codigo}.jpg`;
+  const codigo = img.getAttribute('data-codigo').toUpperCase();
+const url = `https://raw.githubusercontent.com/tecnomaslanus/PS3catalogo/main/img/${codigo}.JPG`;
+
 
   img.src = url;
 
