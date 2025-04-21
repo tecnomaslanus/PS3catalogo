@@ -171,9 +171,10 @@
             juegos.forEach((juego, index) => {
                 if (index > 0 && juego.trim() !== '') {
                     let partes = juego.split(',');
-                let codigo = partes[0]?.replace(/[\r\n\s]+/g, '').toUpperCase() || "000";
-
+                let codigo = partes[0]?.replace(/[\r\n\s]+/g, '') || "000"; // sin extensión, limpio
 let nombre = partes[1]?.trim() || "Desconocido";
+
+
 
                     let item = document.createElement('div');
                     item.classList.add('item');
@@ -211,9 +212,11 @@ const observer = new IntersectionObserver((entries, obs) => {
 });
 
 function cargarImagen(img) {
-  const codigo = img.getAttribute('data-codigo').toUpperCase();
-const url = `https://raw.githubusercontent.com/tecnomaslanus/PS3catalogo/main/img/${codigo}.JPG`;
+  const codigoSinExtension = img.getAttribute('data-codigo');
+  const nombreArchivo = `${codigoSinExtension.toUpperCase()}.JPG`;
+  const url = `https://raw.githubusercontent.com/tecnomaslanus/PS3catalogo/main/img/${nombreArchivo}`;
 
+  console.log("Cargando:", url); // útil para ver si está bien armado
 
   img.src = url;
 
@@ -225,6 +228,7 @@ const url = `https://raw.githubusercontent.com/tecnomaslanus/PS3catalogo/main/im
     img.classList.add('loaded');
   };
 }
+
 
 
 
