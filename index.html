@@ -171,7 +171,8 @@
             juegos.forEach((juego, index) => {
                 if (index > 0 && juego.trim() !== '') {
                     let partes = juego.split(',');
-                let codigo = partes[0]?.trim() || "000";
+                let codigo = partes[0]?.replace(/[\r\n\s]+/g, '').toUpperCase() || "000";
+
 let nombre = partes[1]?.trim() || "Desconocido";
 
                     let item = document.createElement('div');
