@@ -150,21 +150,24 @@
             z-index: 5;
         }
 
+        /* MODIFICACIÓN CLAVE PARA PORTADAS DE PS3 COMPLETAS */
         .item img.lazy-img {
             width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
+            aspect-ratio: 3 / 4; /* Proporción estándar de carátula de PS3 */
+            object-fit: contain;  /* Muestra la imagen entera sin recortarla */
             display: block;
-            background-color: #eee;
+            background-color: #f8f8f8; /* Fondo sutil si la imagen no llena todo el espacio exacto */
+            padding: 4px;
         }
 
         .item-content {
-            padding: 12px;
+            padding: 10px;
             display: flex;
             flex-direction: column;
             background: var(--white);
             flex-grow: 1;
             justify-content: center;
+            border-top: 1px solid #eee;
         }
 
         .item p {
@@ -475,7 +478,6 @@
         let itemsMostrados = 0;
         const loteTamanio = 24; 
         
-        // Memoria persistente para las selecciones de juegos
         let juegosSeleccionadosSet = new Set();
 
         function abrirAyuda() { document.getElementById('modal-ayuda').style.display = 'flex'; }
@@ -660,7 +662,6 @@
                 return;
             }
 
-            // Nueva URL de respuesta del formulario de PS3
             let formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSe4IupJ3VL6Wl8vfYX6O5O2oIN3nmd7VRkOtfBwKt3G7_1FGg/formResponse";
 
             let formData = new URLSearchParams();
